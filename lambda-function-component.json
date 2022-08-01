@@ -1,0 +1,15 @@
+{
+    "lambdaFunction": {
+        "lambdaArn": "arn:aws:lambda:eu-west-1:998235366130:function:test_lambda_function_ci_cd:1",
+        "componentName": "com.example.test_lambda_function_final2",
+        "componentVersion": "1.0.0",
+        "componentLambdaParameters": {
+            "eventSources": [
+                {
+                    "topic": "hello/world/+",
+                    "type": "IOT_CORE"
+                }
+            ]
+        }
+    }
+}

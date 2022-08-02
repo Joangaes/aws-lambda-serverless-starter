@@ -1,8 +1,7 @@
 {
     "lambdaFunction": {
-        "lambdaArn": "arn:aws:lambda:eu-west-1:998235366130:function:test_lambda_function_ci_cd:1",
-        "componentName": "com.example.test_lambda_function_final_final",
-        "componentVersion": "1.0.0",
+        "lambdaArn": "arn:aws:lambda:eu-west-1:998235366130:function:test_lambda_function_ci_cd:2",
+        "componentName": "com.example.test_lambda_function_final_final2",
         "componentLambdaParameters": {
             "eventSources": [
                 {

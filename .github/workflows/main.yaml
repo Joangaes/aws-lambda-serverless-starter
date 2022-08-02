@@ -31,8 +31,10 @@ jobs:  #Workflow run is made up of one or more jobs
           zip -j deploy.zip ./* #--> Zip the Code As we know lambda function accept the zip file.
           aws lambda update-function-code --function-name=test_lambda_function_ci_cd --zip-file=fileb://deploy.zip 
           aws lambda publish-version --function-name test_lambda_function_ci_cd
-      - run: |
-          ls .github//workflows
+      - name: Get and Remplace lambdaArn
+        run: |
+          lambdaArn=$(aws lambda list-versions-by-function --function-name test_lambda_function_ci_cd --no-paginate --query "max_by(Versions, &to_number(to_number(Version) || '0'))" | grep FunctionArn | awk -F \" '{print $4}')
+          sed -i "s/\${#lambdaArn#}/$lambdaArn/" lambda-function-component.json
       - name: Create component
         run: aws greengrassv2 create-component-version --cli-input-json file://lambda-function-component.json    
 # At last the AWS CLI command to Update the Zip file with existing One (With Correct Function Name)

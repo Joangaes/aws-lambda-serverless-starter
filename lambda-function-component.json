@@ -1,6 +1,6 @@
 {
     "lambdaFunction": {
-        "lambdaArn": "arn:aws:lambda:eu-west-1:998235366130:function:test_lambda_function_ci_cd:3",
+        "lambdaArn": "${#lambdaArn#}",
         "componentName": "com.example.test_lambda_function",
         "componentLambdaParameters": {
             "eventSources": [
